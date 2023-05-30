@@ -16,6 +16,9 @@ public class LoginView extends javax.swing.JFrame {
         btEntrar.addActionListener(action);
     }
 
+    public void disposeView(){
+        this.dispose();
+    }
     private void initComponents() {
 
         lbEmail = new javax.swing.JLabel();
@@ -81,7 +84,7 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     public String getPasswordInput(){
-        return tfEmail.getText();
+        return pfPassword.getText();
     }
 
     private javax.swing.JButton btEntrar;

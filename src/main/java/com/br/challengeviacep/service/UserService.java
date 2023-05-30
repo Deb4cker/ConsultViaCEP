@@ -1,6 +1,6 @@
 package com.br.challengeviacep.service;
 
-import com.br.challengeviacep.Exception.UserNotFoundException;
+import com.br.challengeviacep.exception.UserNotFoundException;
 import com.br.challengeviacep.entity.User;
 import com.br.challengeviacep.repository.UserRepository;
 import lombok.AllArgsConstructor;

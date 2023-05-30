@@ -5,7 +5,6 @@ import com.br.challengeviacep.entity.ErrorResponse;
 import com.br.challengeviacep.service.PostalCodeService;
 import com.br.challengeviacep.view.SearchView;
 import lombok.AllArgsConstructor;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Controller;
 

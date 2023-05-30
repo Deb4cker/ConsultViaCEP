@@ -1,6 +1,6 @@
 package com.br.challengeviacep.controller;
 
-import com.br.challengeviacep.entity.User;
+import com.br.challengeviacep.exception.UserNotFoundException;
 import com.br.challengeviacep.service.PostalCodeService;
 import com.br.challengeviacep.service.UserService;
 import com.br.challengeviacep.view.LoginView;
@@ -25,10 +25,16 @@ public class LoginController {
     private void enter(){
         view.setLbWrongInput(false);
 
-        if(isValidUser(view.getEmailInput(), view.getPasswordInput())){
-            new SearchController(new PostalCodeService()).showView();
+        try{
+            if(isValidUser(view.getEmailInput(), view.getPasswordInput())){
+                new SearchController(new PostalCodeService()).showView();
+                view.disposeView();
+            }
+            else view.setLbWrongInput(true);
         }
-        else {view.setLbWrongInput(true);}
+        catch (UserNotFoundException e){
+            view.setLbWrongInput(true);
+        }
     }
 
     private boolean isValidUser(String email, String password){
