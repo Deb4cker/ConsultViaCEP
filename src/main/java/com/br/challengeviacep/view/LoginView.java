@@ -1,5 +1,7 @@
 package com.br.challengeviacep.view;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class LoginView extends javax.swing.JFrame {
@@ -21,6 +23,7 @@ public class LoginView extends javax.swing.JFrame {
     }
     private void initComponents() {
 
+
         lbEmail = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
         lbPassword = new javax.swing.JLabel();
@@ -30,17 +33,27 @@ public class LoginView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tfEmail.setForeground(Color.WHITE);
+        pfPassword.setForeground(Color.white);
+
+        tfEmail.setBackground(new java.awt.Color(89, 87, 87));
+        pfPassword.setBackground(new java.awt.Color(89, 87, 87));
+
+        lbEmail.setForeground(Color.white);
         lbEmail.setText("Email");
 
+        lbPassword.setForeground(Color.white);
         lbPassword.setText("Senha");
 
         btEntrar.setText("Entrar");
 
-        lbWrongInput.setForeground(new java.awt.Color(255, 0, 0));
+        lbWrongInput.setForeground(new java.awt.Color(183, 72, 72));
         lbWrongInput.setText("Email ou senha Incorretos!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+        getContentPane().setBackground(Color.darkGray);
+        setTitle("Entrar");
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()

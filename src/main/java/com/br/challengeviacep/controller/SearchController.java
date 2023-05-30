@@ -53,9 +53,8 @@ public class SearchController {
 
     private void setUniqueCEPLocation(PostalCode postalCode){
         view.setLbCep(postalCode.getCep());
-        view.setLbLocation(postalCode.getLocalidade());
+        view.setLbLocation(postalCode.getLocalidade(), postalCode.getUf());
         view.setLbDDD(postalCode.getDdd());
-        view.setLbUf(postalCode.getUf());
         view.setLbIBGE(postalCode.getIbge());
         view.setLbSIAFI(postalCode.getSiafi());
     }

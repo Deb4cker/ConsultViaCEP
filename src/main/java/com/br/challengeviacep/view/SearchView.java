@@ -1,5 +1,6 @@
 package com.br.challengeviacep.view;
 
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class SearchView extends javax.swing.JFrame {
@@ -19,12 +20,8 @@ public class SearchView extends javax.swing.JFrame {
         lbCep.setText(text);
     }
 
-    public void setLbLocation(String text){
-        lbLocation.setText(text);
-    }
-
-    public void setLbUf(String text){
-        lbUf.setText(" -" + text);
+    public void setLbLocation(String city, String state){
+        lbLocationUf.setText(city + " - " + state);
     }
 
     public void setLbBairro(String text) {
@@ -75,11 +72,10 @@ public class SearchView extends javax.swing.JFrame {
 
     public void resetResultLabels(){
         lbCep.setText("");
-        lbLocation.setText("");
+        lbLocationUf.setText("");
         lbBairro.setText("");
         lbComplemento.setText("");
         lbDDD.setText("");
-        lbUf.setText("");
         lbLogradouro.setText("");
         lbIBGE.setText("");
         lbSIAFI.setText("");
@@ -88,14 +84,14 @@ public class SearchView extends javax.swing.JFrame {
     }
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        header = new javax.swing.JPanel();
         lbDigiteUmCep = new javax.swing.JLabel();
         btSearch = new javax.swing.JButton();
         tfInput = new javax.swing.JTextField();
         lbConsultaViaCep = new javax.swing.JLabel();
         lbInvalidInput = new javax.swing.JLabel();
         lbCep = new javax.swing.JLabel();
-        lbLocation = new javax.swing.JLabel();
+        lbLocationUf = new javax.swing.JLabel();
         lbDDD = new javax.swing.JLabel();
         lbIBGE = new javax.swing.JLabel();
         lbSIAFI = new javax.swing.JLabel();
@@ -105,23 +101,27 @@ public class SearchView extends javax.swing.JFrame {
         lbGIA = new javax.swing.JLabel();
         lbUniqueCep = new javax.swing.JLabel();
         lbNotFound = new javax.swing.JLabel();
-        lbUf = new javax.swing.JLabel();
         lbResponseTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbDigiteUmCep.setText("Digite um CEP:");
+        lbDigiteUmCep.setForeground(Color.WHITE);
 
         btSearch.setText("Pesquisar");
+        btSearch.setBackground(new java.awt.Color(54, 54, 54));
+        btSearch.setForeground(Color.WHITE);
 
         lbConsultaViaCep.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lbConsultaViaCep.setText("Consulta ViaCEP");
+        lbConsultaViaCep.setForeground(Color.WHITE);
 
-        lbInvalidInput.setForeground(new java.awt.Color(204, 0, 0));
+        lbInvalidInput.setForeground(new java.awt.Color(199, 83, 83));
         lbInvalidInput.setText("Digite um CEP válido!");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(header);
+        header.setLayout(jPanel1Layout);
+        header.setBackground(new java.awt.Color(54, 54, 54));
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -161,76 +161,80 @@ public class SearchView extends javax.swing.JFrame {
         );
 
         lbCep.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lbCep.setForeground(Color.WHITE);
         lbCep.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbCep.setText("");
 
-        lbLocation.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbLocationUf.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbLocationUf.setForeground(Color.WHITE);
 
         lbDDD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbDDD.setForeground(Color.WHITE);
 
         lbIBGE.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbIBGE.setForeground(Color.WHITE);
 
         lbSIAFI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbSIAFI.setText(" ");
+        lbSIAFI.setForeground(Color.WHITE);
 
         lbLogradouro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbLogradouro.setForeground(Color.WHITE);
 
         lbBairro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbBairro.setForeground(Color.WHITE);
 
         lbComplemento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbComplemento.setForeground(Color.WHITE);
 
         lbGIA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbGIA.setText(" ");
+        lbGIA.setForeground(Color.WHITE);
 
         lbUniqueCep.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbUniqueCep.setForeground(new java.awt.Color(255, 0, 51));
+        lbUniqueCep.setForeground(new java.awt.Color(199, 83, 83));
         lbUniqueCep.setText("CEP ÚNICO");
 
         lbNotFound.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbNotFound.setForeground(Color.WHITE);
         lbNotFound.setText("Nenhum Resultado encontrado!");
 
-        lbUf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
         lbResponseTime.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lbResponseTime.setForeground(Color.ORANGE);
         lbResponseTime.setText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+        getContentPane().setBackground(Color.darkGray);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lbUf, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(87, 203, Short.MAX_VALUE)
-                                                .addComponent(lbCep, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(lbLocationUf, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(lbIBGE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(lbSIAFI, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                                                        .addComponent(lbGIA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(lbDDD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addGroup(layout.createSequentialGroup()
+                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                .addComponent(lbNotFound))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(lbIBGE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(lbSIAFI, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                                                                        .addComponent(lbGIA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(lbDDD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                 .addGap(147, 147, 147)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(lbLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                                .addComponent(lbBairro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                .addComponent(lbComplemento, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)))
-                                                                .addGap(0, 0, Short.MAX_VALUE))
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                                .addComponent(lbUniqueCep)
-                                                                                .addGap(29, 29, 29))
-                                                                        .addComponent(lbNotFound, javax.swing.GroupLayout.Alignment.TRAILING))))))
-                                .addGap(21, 21, 21))
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addComponent(lbUniqueCep)
+                                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(lbLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                        .addComponent(lbBairro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                        .addComponent(lbComplemento, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                                                                .addComponent(lbCep, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(33, 33, 33))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbResponseTime)
@@ -241,36 +245,31 @@ public class SearchView extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addGap(28, 28, 28)
-                                                                .addComponent(lbCep, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(lbUf, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addComponent(lbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(28, 28, 28)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(lbCep, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbUniqueCep)))
+                                        .addComponent(lbLocationUf, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbUniqueCep)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(lbIBGE, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(lbSIAFI, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(16, 16, 16)
-                                                        .addComponent(lbBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(lbComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lbIBGE, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lbSIAFI, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(16, 16, 16)
+                                                .addComponent(lbBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lbComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbGIA, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                                 .addComponent(lbNotFound)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                                .addGap(139, 139, 139)
                                 .addComponent(lbResponseTime)
                                 .addContainerGap())
         );
@@ -282,7 +281,7 @@ public class SearchView extends javax.swing.JFrame {
     }
     private javax.swing.JButton btSearch;
     private javax.swing.JLabel lbDigiteUmCep;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel header;
     private javax.swing.JLabel lbBairro;
     private javax.swing.JLabel lbCep;
     private javax.swing.JLabel lbComplemento;
@@ -290,9 +289,8 @@ public class SearchView extends javax.swing.JFrame {
     private javax.swing.JLabel lbDDD;
     private javax.swing.JLabel lbGIA;
     private javax.swing.JLabel lbIBGE;
-    private javax.swing.JLabel lbUf;
     private javax.swing.JLabel lbInvalidInput;
-    private javax.swing.JLabel lbLocation;
+    private javax.swing.JLabel lbLocationUf;
     private javax.swing.JLabel lbLogradouro;
     private javax.swing.JLabel lbNotFound;
     private javax.swing.JLabel lbSIAFI;
