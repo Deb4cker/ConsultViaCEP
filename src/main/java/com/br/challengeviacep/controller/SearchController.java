@@ -5,10 +5,13 @@ import com.br.challengeviacep.entity.ErrorResponse;
 import com.br.challengeviacep.service.PostalCodeService;
 import com.br.challengeviacep.view.SearchView;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Controller;
 
 @Controller
 @AllArgsConstructor
+@EnableCaching
 public class SearchController {
 
     private PostalCodeService service;
@@ -20,29 +23,34 @@ public class SearchController {
     }
 
     public void initButtons(){
-        view.addActionbtSearch(e -> search());
+        view.addActionbtSearch(e -> search(view.getInputValue()));
     }
 
-    private void search(){
-        setLabels();
 
-        PostalCode postalCode = service.findPostalCode(view.getInputValue());
-        try {
+
+    public void search(String cep){
+        setLabels();
+        cep = cep.replace("-", "");
+        if(isValidCep(cep)) {
+
+            long init = System.currentTimeMillis();
+            PostalCode postalCode = service.findPostalCode(cep);
+            long finish = System.currentTimeMillis();
+
+            view.setLbResponseTime(finish - init);
             if (postalCode instanceof ErrorResponse) {
                 view.setNotFound(true);
             } else {
-                if(postalCode.getLogradouro().isBlank()){
+                if (isUniqueCep(postalCode)) {
                     view.setUniqueCep(true);
                     setUniqueCEPLocation(postalCode);
-                }
-                else
+                } else
                     setCompleteCEPLocation(postalCode);
             }
         }
-        catch (NullPointerException e){
-            view.setinvalidInput(true);
-        }
+        else{view.setinvalidInput(true);}
     }
+
 
     private void setUniqueCEPLocation(PostalCode postalCode){
         view.setLbCep(postalCode.getCep());
@@ -55,7 +63,6 @@ public class SearchController {
 
     private void setCompleteCEPLocation(PostalCode postalCode){
         setUniqueCEPLocation(postalCode);
-
         view.setLbLogradouro(postalCode.getLogradouro());
         view.setLbBairro(postalCode.getBairro());
         view.setLbComplemento(postalCode.getComplemento());
@@ -63,8 +70,18 @@ public class SearchController {
     }
 
     private void setLabels(){
+        view.resetResultLabels();
         view.setUniqueCep(false);
         view.setinvalidInput(false);
         view.setNotFound(false);
+    }
+
+    private boolean isValidCep(String cep){
+
+        return cep.matches("[+-]?\\d*(\\.\\d+)?") && cep.length() == 8;
+    }
+
+    private boolean isUniqueCep(PostalCode postalCode){
+        return postalCode.getLogradouro().isBlank();
     }
 }

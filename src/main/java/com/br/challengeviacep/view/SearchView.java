@@ -24,37 +24,40 @@ public class SearchView extends javax.swing.JFrame {
     }
 
     public void setLbUf(String text){
-        lbUf.setText(text);
+        lbUf.setText(" -" + text);
     }
 
     public void setLbBairro(String text) {
-        lbBairro.setText(text);
+        lbBairro.setText("Bairro: " + text);
     }
 
     public void setLbComplemento(String text) {
-        lbComplemento.setText(text);
+        lbComplemento.setText("Complemento: " + text);
     }
 
     public void setLbDDD(String text) {
-        lbDDD.setText(text);
+        lbDDD.setText("DDD: " + text);
     }
 
     public void setLbGIA(String text) {
-        lbGIA.setText(text);
+        lbGIA.setText("GIA: " + text);
     }
 
     public void setLbIBGE(String text) {
-        lbIBGE.setText(text);
+        lbIBGE.setText("IBGE: " + text);
     }
 
     public void setLbLogradouro(String text) {
-        lbLogradouro.setText(text);
+        lbLogradouro.setText("Logradouro: " + text);
     }
 
     public void setLbSIAFI(String text) {
-        lbSIAFI.setText(text);
+        lbSIAFI.setText("SIAFI: " + text);
     }
 
+    public void setLbResponseTime(long milliseconds){
+        lbResponseTime.setText("Returned in: " + milliseconds + " ms");
+    }
     public void setinvalidInput(boolean visible){
         lbInvalidInput.setVisible(visible);
     }
@@ -68,6 +71,20 @@ public class SearchView extends javax.swing.JFrame {
     }
     public void addActionbtSearch(ActionListener action){
         btSearch.addActionListener(action);
+    }
+
+    public void resetResultLabels(){
+        lbCep.setText("");
+        lbLocation.setText("");
+        lbBairro.setText("");
+        lbComplemento.setText("");
+        lbDDD.setText("");
+        lbUf.setText("");
+        lbLogradouro.setText("");
+        lbIBGE.setText("");
+        lbSIAFI.setText("");
+        lbGIA.setText("");
+        lbResponseTime.setText("");
     }
     private void initComponents() {
 
@@ -89,6 +106,7 @@ public class SearchView extends javax.swing.JFrame {
         lbUniqueCep = new javax.swing.JLabel();
         lbNotFound = new javax.swing.JLabel();
         lbUf = new javax.swing.JLabel();
+        lbResponseTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,7 +189,10 @@ public class SearchView extends javax.swing.JFrame {
         lbNotFound.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbNotFound.setText("Nenhum Resultado encontrado!");
 
-        lbUf.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbUf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        lbResponseTime.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lbResponseTime.setText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,6 +231,10 @@ public class SearchView extends javax.swing.JFrame {
                                                                                 .addGap(29, 29, 29))
                                                                         .addComponent(lbNotFound, javax.swing.GroupLayout.Alignment.TRAILING))))))
                                 .addGap(21, 21, 21))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbResponseTime)
+                                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +270,9 @@ public class SearchView extends javax.swing.JFrame {
                                 .addComponent(lbGIA, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(11, 11, 11)
                                 .addComponent(lbNotFound)
-                                .addGap(0, 158, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                                .addComponent(lbResponseTime)
+                                .addContainerGap())
         );
 
         pack();
@@ -271,4 +298,5 @@ public class SearchView extends javax.swing.JFrame {
     private javax.swing.JLabel lbSIAFI;
     private javax.swing.JLabel lbUniqueCep;
     private javax.swing.JTextField tfInput;
+    private javax.swing.JLabel lbResponseTime;
 }

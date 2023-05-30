@@ -1,7 +1,9 @@
 package com.br.challengeviacep.config;
 
+import com.br.challengeviacep.controller.LoginController;
 import com.br.challengeviacep.entity.User;
 import com.br.challengeviacep.repository.UserRepository;
+import com.br.challengeviacep.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -23,5 +25,7 @@ public class ApplicationConfig implements CommandLineRunner {
         list.add(new User(null, "admin@admin2", "234"));
 
         userRepository.saveAll(list);
+
+        new LoginController(new UserService(userRepository)).showView();
     }
 }

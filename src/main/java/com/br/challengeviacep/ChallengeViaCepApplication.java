@@ -1,7 +1,9 @@
 package com.br.challengeviacep;
 
-import com.br.challengeviacep.controller.SearchController;
-import com.br.challengeviacep.service.PostalCodeService;
+import com.br.challengeviacep.controller.LoginController;
+import com.br.challengeviacep.repository.UserRepository;
+import com.br.challengeviacep.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -13,9 +15,6 @@ public class ChallengeViaCepApplication {
         //SpringApplication.run(ChallengeViaCepApplication.class, args);
         ConfigurableApplicationContext ctx = new SpringApplicationBuilder(ChallengeViaCepApplication.class)
                 .headless(false).run(args);
-
-        new SearchController(new PostalCodeService()).showView();
-
     }
 
 
