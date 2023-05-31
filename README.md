@@ -151,6 +151,45 @@ Por fim, clique em ``connect``. Você será direcionado para a seguinte tela:
 
 Pronto, estarão a mostra os usuários cadastrados.
 
+### 2. Inserindo usuários no sistema
+Nesta aplicação não foi desenvolvido um caso de uso de registro de usuário. Para isso, é necessário acesasr o código fonte e inserir manualmente.
+1. Acesse a classe ``ApplicationConfig``;
+2. Nela você estará diante deste método run:
+
+```
+@Override
+    public void run(String... args) throws Exception {
+
+        List<User> list = new ArrayList<>();
+        list.add(new User(null, "admin@admin1", "123"));
+        list.add(new User(null, "admin@admin2", "234"));
+
+        userRepository.saveAll(list);
+
+        start.showView();
+    }
+```
+
+3. Insirá seu usuário neste formato ``list.add(new User(null, "seu_email", "sua_senha"));`` antes do chamado ``userRepository.saveAll(list);`` deste modo:
+
+```
+@Override
+    public void run(String... args) throws Exception {
+
+        List<User> list = new ArrayList<>();
+        list.add(new User(null, "admin@admin1", "123"));
+        list.add(new User(null, "admin@admin2", "234"));
+        list.add(new User(null, "seu_email", "sua_senha"));
+        
+        userRepository.saveAll(list);
+
+        start.showView();
+    }
+```
+4. Faça uma nova build e execute o projeto.
+
+## Consulta de CEP
+
 
 ## Agradecimentos
 
