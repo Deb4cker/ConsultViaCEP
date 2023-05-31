@@ -48,9 +48,9 @@ public class User {
 
 As anotações ``@Data``, ``@NoArgsConstructor`` e ``@AllArgsConstructor`` têm os seguintes propósitos:
 
-``@Data``: Cria automaticamente os métodos getter, setter, toString, equals e hashCode para todos os campos da classe.
-``@NoArgsConstructor``: Cria um construtor vazio padrão, ou seja, um construtor sem argumentos.
-``@AllArgsConstructor``: Cria um construtor com todos os argumentos, ou seja, um construtor que aceita todos os campos da classe como parâmetros.
+- ``@Data``: Cria automaticamente os métodos getter, setter, toString, equals e hashCode para todos os campos da classe;
+- ``@NoArgsConstructor``: Cria um construtor vazio padrão, ou seja, um construtor sem argumentos.
+- ``@AllArgsConstructor``: Cria um construtor com todos os argumentos, ou seja, um construtor que aceita todos os campos da classe como parâmetros.
 
 O objetivo da utilização do Lombok com essas anotações é reduzir a verbosidade do código, evitando a necessidade de escrever manualmente os métodos getter, setter, toString, equals e hashCode, bem como os construtores vazio e com todos os argumentos. Isso torna a classe mais concisa, mantendo a mesma funcionalidade.
 
