@@ -152,7 +152,7 @@ Por fim, clique em ``connect``. Você será direcionado para a seguinte tela:
 Pronto, estarão à mostra os usuários cadastrados.
 
 ### 2. Inserindo usuários no sistema
-Nesta aplicação não foi desenvolvido um caso de uso de registro de usuário. Para isso, é necessário acesasr o código fonte e inserir manualmente.
+Nesta aplicação não foi desenvolvido um caso de uso de registro de usuário, com isto, foi adotada a prática de *Database seeding*, ou seja, incluir na configuração do projeto a inserção de algumas entidades. Para isso, é necessário acessar o código fonte e inserir manualmente.
 1. Acesse a classe ``ApplicationConfig``;
 2. Nela você estará diante deste método run:
 
