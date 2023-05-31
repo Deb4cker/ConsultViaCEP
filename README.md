@@ -200,7 +200,11 @@ Basta inserir o CEP e realizar as consultas. O programa indifere a inserção co
 
 
 ## Agradecimentos
-- À Egadnet por propor o desafio
-
+- À Egadnet por propor o desafio e pela oportunidade;
+- À minha equipe do projeto integrador: [Luiz Portela](https://github.com/LuizFJP), [Gustavo Avelar](https://github.com/GusDev0258) e [Solange Duemes](https://github.com/solange-d), pelo apoio nos testes, pelas dicas de portifolio e claro, pelo aprendizado conjunto. Vocês são uns fofos.
+- À [Luíza](https://github.com/luizanurnberg) pela recomendação e apoio;
+- À minha namorada, [Ana Fábia](https://www.linkedin.com/in/ana-f%C3%A1bia-coelho-dos-santos-12475624b/), por sempre acreditar no meu potencial e sempre me colocar pra cima;
+- Ao Igor pela tortinha de Limão! 🍰
 
 ## Licença
+Este projeto está licenciado sob a Licença MIT.
