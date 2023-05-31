@@ -149,7 +149,7 @@ Por fim, clique em ``connect``. Você será direcionado para a seguinte tela:
 
 4. Basta agora inserir o comando ``SELECT * FROM USERS`` e clicar em ``Run``.
 
-Pronto, estarão a mostra os usuários cadastrados.
+Pronto, estarão à mostra os usuários cadastrados.
 
 ### 2. Inserindo usuários no sistema
 Nesta aplicação não foi desenvolvido um caso de uso de registro de usuário. Para isso, é necessário acesasr o código fonte e inserir manualmente.
@@ -190,7 +190,17 @@ Nesta aplicação não foi desenvolvido um caso de uso de registro de usuário. 
 
 ## Consulta de CEP
 
+Uma vez o login realizado você estará em uma tela como a de baixo:
+
+![telaCep1](https://github.com/Deb4cker/MyReadMeAssets/blob/main/Images/ConsultaView.jpeg)
+
+Basta inserir o CEP e realizar as consultas. O programa indifere a inserção com ou sem "-". Também distingue CEPs completos e únicos.
+
+![telaCep2](https://github.com/Deb4cker/MyReadMeAssets/blob/main/Images/ConsultaView2.jpeg)
+
 
 ## Agradecimentos
+- À Egadnet por propor o desafio
+
 
 ## Licença
