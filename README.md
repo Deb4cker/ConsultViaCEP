@@ -54,6 +54,15 @@ As anotações ``@Data``, ``@NoArgsConstructor`` e ``@AllArgsConstructor`` têm 
 
 O objetivo da utilização do Lombok com essas anotações é reduzir a verbosidade do código, evitando a necessidade de escrever manualmente os métodos getter, setter, toString, equals e hashCode, bem como os construtores vazio e com todos os argumentos. Isso torna a classe mais concisa, mantendo a mesma funcionalidade.
 
+Dependência em XML:
+```
+<dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+</dependency>
+```
+
 #### Spring Cache Abstraction (Cacheable)
 Abstração de cache do Spring utilizada para melhorar o desempenho da aplicação. Neste contexto, é utilizada para melhorar o tempo de resposta em requisições repetidas.
 Foi utilizada na classe "PostalCodeService", camada de serviço responsável pela consulta na API.
@@ -74,6 +83,14 @@ public class PostalCodeService {
 
 Com a anotação @Cacheable("nome_do_cache"), é possível armazenar o retorno de um método para um argumento específico que já foi mapeado.
 O objetivo dessa utilização é atender ao critério diferencial proposto pelo desafio.
+
+Dependência em XML:
+```
+<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-cache</artifactId>
+</dependency>
+```
 
 ## Configurando o ambiente
 Certifique-se de ter o JDK 18.0.1.1 instalado em sua máquina. Para construir e executar o projeto, você precisará ter o Maven instalado. Para editar e compilar o projeto, é recomendado utilizar a IDE IntelliJ.
