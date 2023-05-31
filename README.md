@@ -93,9 +93,37 @@ Dependência em XML:
 ```
 
 ## Configurando o ambiente
-Certifique-se de ter o JDK 18.0.1.1 instalado em sua máquina. Para construir e executar o projeto, você precisará ter o Maven instalado. Para editar e compilar o projeto, é recomendado utilizar a IDE IntelliJ.
+Certifique-se de ter o JDK 18.0.1.1 instalado em sua máquina. Para construir e executar o projeto, você precisará ter o Maven instalado. Para editar e compilar o projeto, é recomendado utilizar a IDE IntelliJ uma vez que nela todos os recursos vem pre instalados.
+
+## Criação das telas
+A IDE NetBeans possui um gerador de código para a biblioteca Java Swing. Neste projeto, as telas foram criadas na IDE e posteriormente incorporadas à classe correspondente dentro do projeto.
+
+A utilização do gerador de código do NetBeans agiliza o processo de criação das telas, permitindo que você projete visualmente a interface do usuário e, em seguida, gere automaticamente o código correspondente.
+
+Para incorporar as telas ao projeto, você pode copiar o código gerado pelo NetBeans e colá-lo na classe correspondente. Isso permite que você mantenha o código e a lógica da interface juntos em um só lugar, facilitando a manutenção e compreensão do projeto.
+
+Essa abordagem combina a facilidade de uso do gerador de código com a flexibilidade e controle oferecidos pela escrita manual do código.
+
+Abaixo a amostra da interface gráfica de criação de telas:
+
+![telaDesign](https://github.com/Deb4cker/MyReadMeAssets/blob/main/Images/netBeans_swing_design.png)
 
 ## Executando o projeto
+Para executar o projeto siga os seguintes passos:
+1. Clone o repositório para sua máquina local.
+2. Abra o projeto na IDE (preferencialmente IntelliJ).
+3. Certifique-se de que as dependências do projeto tenham sido baixadas corretamente pelo Maven.
+4. Na pasta do projeto (``C:\...\ChallengeViaCEP>``), execute o comando ``mvn clean``.
+5. A partir daqui voce pode **Criar um executável ``.jar``** ou **rodar na própria IDE** 
+6. Uma vez tendo sucesso, caso queira criar o executavel, basta inserir o comando ``mvn install``.
+7. Por ultimo, entre na pasta "target", (``C:\...\ChallengeViaCEP\target\>``) onde está o executável e clique duas vezes.
+
+**OBS:** Caso o arquivo não abra, execute no terminal onde está o arquivo .jar o comando: ``java -jar ChallengeViaCEP-0.0.1-SNAPSHOT.jar``.
+
+Se tudo deu certo, então é provável que você esteja diante de uma pequena tela assim:
+
+![LoginView](https://github.com/Deb4cker/MyReadMeAssets/blob/main/Images/login_javaSwing.png)
+
 
 ## Agradecimentos
 
