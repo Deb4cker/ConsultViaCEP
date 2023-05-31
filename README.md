@@ -23,7 +23,7 @@ Para criar o projeto, foram utilizadas as seguintes tecnologias:
 - 🖌️**NetBeans**: IDE de desenvolvimento Java utilizada para editar e compilar o projeto, neste contexto, utilizada para a criação das telas via Java Swing.
 
 ## Dependências utilizadas
-#### Lombok: 
+### Lombok: 
 Ferramenta que gera métodos básicos para as classes (getters, setters, toString, equals & hashCode) utilizando notações.
 Exemplo de uso de notações do Lombok na classe "User":
 
@@ -63,7 +63,7 @@ Dependência em XML:
 </dependency>
 ```
 
-#### Spring Cache Abstraction (Cacheable)
+### Spring Cache Abstraction (Cacheable)
 Abstração de cache do Spring utilizada para melhorar o desempenho da aplicação. Neste contexto, é utilizada para melhorar o tempo de resposta em requisições repetidas.
 Foi utilizada na classe "PostalCodeService", camada de serviço responsável pela consulta na API.
 
