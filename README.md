@@ -124,6 +124,33 @@ Se tudo deu certo, então é provável que você esteja diante de uma pequena te
 
 ![LoginView](https://github.com/Deb4cker/MyReadMeAssets/blob/main/Images/login_javaSwing.png)
 
+## Acesso ao banco de dados e registro de usuários
+
+A partir deste ponto você terá 3 opções: 
+- **Consultar no banco de dados os usuarios existentes;**
+- **Inserir manualmente uma nova entidade no sistema;**
+- **Ignorar e inserir nos campos E-email e senha os valores:** ``admin@admin1`` e ``123``. 
+
+### 1. Consultando o banco de dados H2
+Por ser uma aplicação pequena e que possui apenas uma entidade, foi utilizado para a persistencia de dados o H2. O banco de dados H2 é um sistema gerenciador de banco de dados em memoria. As configurações dele podem ser acessadas no arquivo ``application.properties``, na pasta resources, dentro da raiz do projeto.
+Para acessá-lo, siga os seguintes passos:
+1. digite na barra de pesquisa do seu navegador a seguinte url: ``http://localhost:8080/h2-console/``;
+2. Você será direcionado para a seguinte tela:
+
+![LoginH2](https://github.com/Deb4cker/MyReadMeAssets/blob/main/Images/h2Console.png) 
+
+3. Certifique-se de que os campos estejam na seguinte disposição:
+1. JDBC URL: ``jdbc:h2:mem:UsersViaCEPApp``;
+2. Username: ``h2``;
+3. Campo senha vazio;
+Por fim, clique em ``connect``. Você será direcionado para a seguinte tela: 
+
+![h2Console](https://github.com/Deb4cker/MyReadMeAssets/blob/main/Images/h2Screen.png)
+
+4. Basta agora inserir o comando ``SELECT * FROM USERS`` e clicar em ``Run``.
+
+Pronto, estarão a mostra os usuários cadastrados.
+
 
 ## Agradecimentos
 
