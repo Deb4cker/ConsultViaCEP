@@ -3,7 +3,6 @@ package com.br.challengeviacep.config;
 import com.br.challengeviacep.controller.LoginController;
 import com.br.challengeviacep.entity.User;
 import com.br.challengeviacep.repository.UserRepository;
-import com.br.challengeviacep.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +16,8 @@ public class ApplicationConfig implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private LoginController start;
     @Override
     public void run(String... args) throws Exception {
 
@@ -26,6 +27,6 @@ public class ApplicationConfig implements CommandLineRunner {
 
         userRepository.saveAll(list);
 
-        new LoginController(new UserService(userRepository)).showView();
+        start.showView();
     }
 }
